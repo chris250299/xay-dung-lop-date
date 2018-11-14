@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Xây Dựng Lớp Date</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+<script>
+    var MyDate = function (day, month, year) {
+        this.day = day;
+        this.month = month;
+        this.year = year;
+        this.getDay = function () {
+            return this.day;
+        };
+        this.getMonth = function () {
+            return this.month;
+        };
+        this.getYear = function () {
+            return this.year;
+        };
+        this.setDay = function (day) {
+           return this.day = day;
+        };
+        this.setMonth = function (month) {
+           return this.month = month;
+        };
+        this.setYear = function (year) {
+            return this.year = year;
+        }
+    };
+    var date = new MyDate(2, 2, 2007);
+    var day = date.getDay();
+    var month = date.getMonth();
+    var year = date.getYear();
+    alert(day + "/" + month + "/" + year);
+    var setDay = date.setDay(10);
+    alert(setDay + "/"+ month + "/" + year);
+    MyDate.prototype.setDate = function (day, month, year) {
+        this.day = day;
+        this.month = month;
+        this.year = year;
+        return day +'/'+month + '/' +year;
+    }
+    alert(date.setDate(14,11,2018));
+</script>
+</body>
+</html>
